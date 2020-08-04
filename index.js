@@ -38,7 +38,7 @@ client.on("message", message=> {
         guild.channels.cache.forEach(channel => {
             if(channel)
             {
-                channel.updateOverwrite(channel.guild.roles.everyone, { SEND_MESSAGES: false });
+                channel.updateOverwrite(guild.roles.everyone, { SEND_MESSAGES: false });
                 channel.updateOverwrite(role, { SEND_MESSAGES: false });
             }
         })
