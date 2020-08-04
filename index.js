@@ -40,6 +40,7 @@ client.on("message", message=> {
             {
                 channel.updateOverwrite(guild.roles.everyone, { VIEW_CHANNEL: false });
                 channel.updateOverwrite(role, { VIEW_CHANNEL: true });
+                channel.updateOverwrite(role, { SEND_MESSAGES: true });
             }
         })
     }
