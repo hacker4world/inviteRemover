@@ -14,7 +14,7 @@ client.on("ready", () => {
             client.on("messageReactionAdd", async(reaction , user )=> {
                 if(!user.bot && reaction.message.channel.id == "739884918989127710" && reaction.emoji.name == "✅") {
                     let member = reaction.message.guild.members.cache.get(user.id)
-                    member.roles.add(verif)
+                    member.roles.add(verif).catch(err => console.log("NVM"))
                 }
             })
         }
