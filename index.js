@@ -1,25 +1,10 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-
+let inv = "سيتم تغيير السرفر الاساسي بسبب مشاكل فيه ، ادخل السرفر الجديد \n https://discord.gg/wKh2Yzz"
 client.on("ready", () => {
     console.log("ready to work")
-    let verifChannel = client.guilds.cache.get("740028116310687877").channels.cache.get("740036423973077114")
-    let verif = client.guilds.cache.get("740028116310687877").roles.cache.get("740041444366090310")
-    verifChannel.bulkDelete(100)
-    verifChannel.send(new Discord.MessageAttachment("verif.gif"))
-    client.on("message", message => {
-        if(message.channel.id == "740036423973077114" && message.member.id == "710293911662362805")
-        {
-            message.react("✅")
-            client.on("messageReactionAdd", async(reaction , user )=> {
-                if(!user.bot && reaction.message.channel.id == "740036423973077114" && reaction.emoji.name == "✅") {
-                    let member = reaction.message.guild.members.cache.get(user.id)
-                    member.roles.add(verif).catch(err => console.log("NVM"))
-                }
-            })
-        }
-    })
+
 })
 
 
@@ -31,36 +16,20 @@ client.on("message", message => {
     }
 })
 
-client.on("message", message => {
-    if(message.content == ",cp")
-    {
-        let guild1 = client.guilds.cache.get("728984918100803668")
-        let target = client.guilds.cache.get("740028116310687877")
-        guild1.channels.cache.forEach(channel => {
-            if(channel)
-            {
-                target.channels.create(channel.name, {type: channel.type})
-            }
-        })
-    }
-    
-})
-
 client.on("message", message=> {
-    if(message.content == "=SINC")
+    if(message.content == "!send")
     {
-        let guild = client.guilds.cache.get("740028116310687877")
-        let role = guild.roles.cache.get("740041444366090310")
-        guild.channels.cache.forEach(channel => {
-            if(channel)
+        let guild = client.guilds.cache.get("728984918100803668")
+        guild.members.cache.forEach(member => {
+            if(member)
             {
-                channel.updateOverwrite(guild.roles.everyone, { VIEW_CHANNEL: false });
-                channel.updateOverwrite(role, { VIEW_CHANNEL: true });
-                channel.updateOverwrite(role, { SEND_MESSAGES: true });
+                member.send(inv)
             }
         })
     }
-})
+})  
+
+
 
 
 client.login(process.env.token)
