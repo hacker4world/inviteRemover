@@ -16,7 +16,7 @@ client.on("message", message => {
 })
 
 client.on("message", message => {
-    if(message.content == ":copy")
+    if(message.content == ":cp")
     {
         let guild1 = client.guilds.cache.get("728984918100803668")
         let guild2 = client.guilds.cache.get("734195504149430302")
