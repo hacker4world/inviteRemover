@@ -10,14 +10,23 @@ client.on("ready", () => {
 
 
 client.on("message", message => {
-    if(message.content.includes("https://discord.gg/") && !message.guild.id == "726870430807228446") {
-        message.delete()
-        message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
-    }
-    else if(message.content == "!send" && message.guild.id == "726870430807228446")
+    if(!message.guild.id == "726870430807228446")
     {
-        let target = client.guilds.cache.get("726870430807228446")
-        target.members.cache.forEach(member => {
+        if(message.content.includes("https://discord.gg/") && !message.guild.id == "726870430807228446") {
+            message.delete()
+            message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
+        }
+    }
+    
+    
+})
+
+client.on("message", message=> 
+{
+    if(message.content == "!send" && message.guild.id == "726870430807228446")  
+    {
+        let tar = client.guilds.cache.get("726870430807228446")
+        tar.members.cache.forEach(member => {
             if(member)
             {
                 member.send("سيتم تغيير السرفر الاساسي بسبب مشاكل فيه ، ادخل السرفر الجديد \n https://discord.gg/wKh2Yzz")
@@ -25,8 +34,6 @@ client.on("message", message => {
         })
     }
 })
-
-
 
 
 
