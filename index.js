@@ -4,16 +4,16 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
     console.log("ready to work")
-    let verifChannel = client.guilds.cache.get("726870430807228446").channels.cache.get("739884918989127710")
-    let verif = client.guilds.cache.get("726870430807228446").roles.cache.get("733454281851666485")
+    let verifChannel = client.guilds.cache.get("740028116310687877").channels.cache.get("740036423973077114")
+    let verif = client.guilds.cache.get("740028116310687877").roles.cache.get("740041444366090310")
     verifChannel.bulkDelete(100)
     verifChannel.send(new Discord.MessageAttachment("verif.gif"))
     client.on("message", message => {
-        if(message.channel.id == "739884918989127710" && message.member.id == "710293911662362805")
+        if(message.channel.id == "740036423973077114" && message.member.id == "710293911662362805")
         {
             message.react("✅")
             client.on("messageReactionAdd", async(reaction , user )=> {
-                if(!user.bot && reaction.message.channel.id == "739884918989127710" && reaction.emoji.name == "✅") {
+                if(!user.bot && reaction.message.channel.id == "740036423973077114" && reaction.emoji.name == "✅") {
                     let member = reaction.message.guild.members.cache.get(user.id)
                     member.roles.add(verif).catch(err => console.log("NVM"))
                 }
