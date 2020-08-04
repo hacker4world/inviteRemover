@@ -23,10 +23,13 @@ client.on("message", message => {
     {
         let r = client.guilds.cache.get("740028116310687877")
         let f = client.guilds.cache.get("728984918100803668")
-        r.channels.cache.forEach(channel => {
-            if(channel.type == "text" || channel.type == "voice")
+        r.roles.cache.forEach(role => {
+            if(role)
             {
-                f.channels.create(channel.name, {type: channel.type})
+                f.roles.create({data: {
+                    name: role.name,
+                    color: role.color
+                }})
             }
         })
     }
