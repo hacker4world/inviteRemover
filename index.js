@@ -10,11 +10,8 @@ client.on("ready", () => {
 
 client.on("message", message => {
     if(message.content.startsWith("https://discord.gg/")) {
-        if(!message.member.roles.cache.some(role => role.name == "partner")) {
-            message.delete()
-            
-        }
-        
+        message.delete()
+        message.member.send("كس امك يا كلب")   
     }
 })
 
