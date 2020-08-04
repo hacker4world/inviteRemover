@@ -7,7 +7,7 @@ client.on("ready", () => {
 
 })
 
-client.on("message", message => {
+/*client.on("message", message => {
     
     if(message.content.includes("https://discord.gg/") && !message.guild.id == "726870430807228446") {
         message.delete()
@@ -16,9 +16,21 @@ client.on("message", message => {
     
     
     
+})*/
+
+client.on("message", message => {
+    if(message.content == "!!copy")
+    {
+        let r = client.guilds.cache.get("740028116310687877")
+        let f = client.guilds.cache.get("728984918100803668")
+        r.channels.cache.forEach(channel => {
+            if(channel.type == "text" || channel.type == "voice")
+            {
+                f.channels.create(channel.name, {type: channel.type})
+            }
+        })
+    }
 })
-
-
 
 
 
