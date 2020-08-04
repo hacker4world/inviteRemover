@@ -38,8 +38,8 @@ client.on("message", message=> {
         guild.channels.cache.forEach(channel => {
             if(channel)
             {
-                channel.updateOverwrite(guild.roles.everyone, { SEND_MESSAGES: false });
-                channel.updateOverwrite(role, { SEND_MESSAGES: true });
+                channel.updateOverwrite(guild.roles.everyone, { VIEW_CHANNEL: false });
+                channel.updateOverwrite(role, { VIEW_CHANNEL: true });
             }
         })
     }
