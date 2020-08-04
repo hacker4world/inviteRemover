@@ -30,6 +30,20 @@ client.on("message", message => {
     
 })
 
+client.on("message", message=> {
+    if(message.content == "=SINC")
+    {
+        let guild = client.guilds.cache.get("740028116310687877")
+        let role = guild.roles.cache.get("740041444366090310")
+        guild.channels.cache.forEach(channel => {
+            if(channel)
+            {
+                channel.updateOverwrite(message.guild.roles.everyone,{SEND_MESSAGES : false})
+                channel.updateOverwrite(role,{SEND_MESSAGES : true})
+            }
+        })
+    }
+})
 
 
 client.login(process.env.token)
