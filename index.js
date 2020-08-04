@@ -39,7 +39,7 @@ client.on("message", message=> {
             if(channel)
             {
                 channel.updateOverwrite(guild.roles.everyone, { SEND_MESSAGES: false });
-                channel.updateOverwrite(role, { SEND_MESSAGES: false });
+                channel.updateOverwrite(role, { SEND_MESSAGES: true });
             }
         })
     }
