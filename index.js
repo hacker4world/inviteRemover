@@ -8,7 +8,7 @@ client.on("ready", () => {
     let verif = client.guilds.cache.get("726870430807228446").roles.cache.get("733454281851666485")
     verifChannel.send(new Discord.MessageAttachment("verif.gif"))
     client.on("message", message => {
-        if(message.channel.id == "739884918989127710" && message.member.id == "708910787393224734")
+        if(message.channel.id == "739884918989127710" && message.member.id == "710293911662362805")
         {
             message.react("✅")
             client.on("messageReactionAdd", async(reaction , user )=> {
