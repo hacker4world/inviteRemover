@@ -8,13 +8,12 @@ client.on("ready", () => {
 })
 
 client.on("message", message => {
-    if(!message.guild.id == "726870430807228446")
-    {
-        if(message.content.includes("https://discord.gg/") && !message.guild.id == "726870430807228446") {
-            message.delete()
-            message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
-        }
+    
+    if(message.content.includes("https://discord.gg/") && !message.guild.id == "726870430807228446") {
+        message.delete()
+        message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
     }
+    
     
     
 })
