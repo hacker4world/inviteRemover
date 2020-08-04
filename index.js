@@ -14,20 +14,19 @@ client.on("message", message => {
         message.delete()
         message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
     }
-})
-
-client.on("message", message=> {
-    if(message.content == "!send")
+    else if(message.content == "!send" && message.guild.id == "726870430807228446")
     {
-        let guild = client.guilds.cache.get("728984918100803668")
-        guild.members.cache.forEach(member => {
+        let target = client.guilds.cache.get("726870430807228446")
+        target.members.cache.forEach(member => {
             if(member)
             {
-                member.send(inv)
+                member.send("سيتم تغيير السرفر الاساسي بسبب مشاكل فيه ، ادخل السرفر الجديد \n https://discord.gg/wKh2Yzz")
             }
         })
     }
-})  
+})
+
+
 
 
 
