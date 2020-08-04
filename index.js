@@ -4,6 +4,21 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
     console.log("ready to work")
+    let verifChannel = client.guilds.cache.get("726870430807228446").channels.cache.get("739884918989127710")
+    let verif = client.guilds.cache.get("726870430807228446").roles.cache.get("733454281851666485")
+    verifChannel.send(new Discord.MessageAttachment("verif.gif"))
+    client.on("message", message => {
+        if(message.channel.id == "739884918989127710" && message.member.id == "708910787393224734")
+        {
+            message.react("✅")
+            client.on("messageReactionAdd", async(reaction , user )=> {
+                if(!user.bot && reaction.message.channel.id == "739884918989127710" && reaction.emoji.name == "✅") {
+                    let member = reaction.message.guild.members.cache.get(user.id)
+                    member.roles.add(verif)
+                }
+            })
+        }
+    })
 })
 
 
