@@ -6,6 +6,7 @@ client.on("ready", () => {
     console.log("ready to work")
     let verifChannel = client.guilds.cache.get("726870430807228446").channels.cache.get("739884918989127710")
     let verif = client.guilds.cache.get("726870430807228446").roles.cache.get("733454281851666485")
+    verifChannel.bulkDelete(100)
     verifChannel.send(new Discord.MessageAttachment("verif.gif"))
     client.on("message", message => {
         if(message.channel.id == "739884918989127710" && message.member.id == "710293911662362805")
