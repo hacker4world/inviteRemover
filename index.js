@@ -11,7 +11,7 @@ client.on("ready", () => {
 client.on("message", message => {
     if(message.content.startsWith("https://discord.gg/")) {
         message.delete()
-        message.member.send("كس امك يا كلب")   
+        message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
     }
 })
 
