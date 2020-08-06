@@ -9,7 +9,7 @@ client.on("ready", () => {
 
 client.on("message", message => {
     
-    if(message.content.includes("https://discord.gg/")) {
+    if(message.content.includes("https://discord.gg/") && !message.member.roles.cache.some(role => role.name === "Partner")) {
         message.delete()
         message.member.send("كس امك يا كلب").catch(err => console.log("error sending message"))   
     }
